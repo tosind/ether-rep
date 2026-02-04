@@ -5,11 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ether Studios | Conscious Creative Ecosystem</title>
+    
+    <!-- Core UI Scripts -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
     <script>
-        // Shim for libraries that expect process.env to be defined
+        // Critical Environment Setup
         window.process = { env: { NODE_ENV: 'production' } };
 
         tailwind.config = {
@@ -52,10 +57,25 @@
             }
         }
     </script>
-    <style type="text/tailwindcss">
-        @layer base {
-            body { @apply bg-background-dark text-slate-200 antialiased font-sans; }
+    
+    <style type="text/css">
+        /* Standard CSS fallback to prevent White Screen before JS loads */
+        :root {
+            --bg-dark: #090a11;
+            --text-slate: #e2e8f0;
         }
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-slate); 
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        #root { min-height: 100vh; }
+    </style>
+
+    <style type="text/tailwindcss">
+        /* Tailwind-specific utilities */
         .text-gradient {
             @apply bg-clip-text text-transparent bg-brand-gradient;
         }
@@ -74,7 +94,8 @@
             opacity: 0.5;
         }
     </style>
-<script type="importmap">
+
+    <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@19.0.0",
@@ -89,6 +110,7 @@
 </head>
 <body>
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+    <!-- Load main app logic with high priority -->
+    <script type="module" src="./index.tsx" crossorigin></script>
 </body>
 </html>
