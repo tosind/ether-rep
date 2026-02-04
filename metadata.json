@@ -1,0 +1,7 @@
+{
+  "name": "Ether Studios Ecosystem",
+  "description": "A world-class conscious creative ecosystem for high-performance artists, featuring premium music, photography, and podcast environments with integrated residency programs.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
