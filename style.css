@@ -1,0 +1,38 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-dark: #090a11;
+    --text-slate: #e2e8f0;
+  }
+  body { 
+    @apply bg-background-dark text-slate-200 antialiased font-sans;
+    margin: 0;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-brand-gradient;
+  }
+  .glass-card {
+    background: rgba(18, 20, 33, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .pricing-glow {
+    position: relative;
+  }
+  .pricing-glow::after {
+    content: '';
+    position: absolute;
+    inset: -1.5px;
+    background: linear-gradient(to right, #FF4D00, #FF007A, #9000FF, #0057FF, #00C2FF);
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0.5;
+  }
+}
